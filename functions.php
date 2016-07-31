@@ -1,3 +1,7 @@
+<?php // Register custom navigation walker
+    require_once('wp_bootstrap_navwalker.php');
+?>
+
 <?php
 /**
  * _s functions and definitions.
@@ -106,6 +110,8 @@ function _s_scripts() {
         
         wp_enqueue_style( '_s-style', get_stylesheet_uri() . '/bootstrap/css/bootstrap-theme.css', array(), '20160731', true );
         
+        wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array(), '20160731', true );
+        
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -114,6 +120,7 @@ function _s_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
 /**
