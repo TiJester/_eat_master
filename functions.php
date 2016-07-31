@@ -1,6 +1,4 @@
-<?php // Register custom navigation walker
-    require_once('wp_bootstrap_navwalker.php');
-?>
+
 
 <?php
 /**
@@ -106,11 +104,12 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-	//wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+	   
+        wp_enqueue_style( '_s-style', get_template_directory_uri(). '/bootstrap/css/bootstrap.css', array(), '20160731', false);
         
-        wp_enqueue_style( '_s-style', get_stylesheet_uri() . '/bootstrap/css/bootstrap-theme.css', array(), '20160731', true );
+        wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), '20160731', false);
         
-        wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array(), '20160731', true );
+        wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array(), '20160731', false );
         
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
